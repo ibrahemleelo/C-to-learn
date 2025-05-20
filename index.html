@@ -1,0 +1,430 @@
+Ibrahem Leelo, [5/21/2025 1:50 AM]
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تعلم لغة C# - دليل شامل للمبتدئين</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* الأساسيات */
+        :root {
+            --primary-color: #3498db;
+            --secondary-color: #2c3e50;
+            --light-color: #ecf0f1;
+            --dark-color: #2c3e50;
+            --accent-color: #e74c3c;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f9f9f9;
+        }
+
+        .container {
+            width: 85%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* الترويسة */
+        header {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        header h1 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 1.5rem;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: var(--primary-color);
+        }
+
+        /* القسم الرئيسي */
+        #hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://via.placeholder.com/1920x1080') center/cover;
+            color: white;
+            text-align: center;
+            padding: 10rem 0;
+            margin-top: 60px;
+        }
+
+        #hero h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        #hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+        .btn:hover {
+            background-color: #2980b9;
+        }
+
+        /* الأقسام العامة */
+        .section {
+            padding: 5rem 0;
+        }
+
+        .section h2 {
+            text-align: center;
+            font-size: 2.2rem;
+            margin-bottom: 3rem;
+            color: var(--dark-color);
+        }
+
+        .section.dark {
+            background-color: var(--dark-color);
+            color: white;
+        }
+
+        .section.dark h2 {
+            color: white;
+        }
+
+        /* الميزات */
+        .features {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        .feature {
+            flex: 1;
+            min-width: 250px;
+            background-color: white;
+            padding: 2rem;
+            border-radius: 5px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .feature:hover {
+            transform: translateY(-10px);
+        }
+
+        .feature i {
+            font-size: 3rem;
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+        }
+
+        .feature h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        /* الفيديوهات */
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .video-card {
+
+Ibrahem Leelo, [5/21/2025 1:50 AM]
+background-color: white;
+            border-radius: 5px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .video-card iframe {
+            width: 100%;
+            height: 200px;
+            border: none;
+        }
+
+        .video-card h3 {
+            padding: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .video-card p {
+            padding: 0 1rem 1rem;
+            color: #666;
+        }
+
+        .section.dark .video-card {
+            background-color: var(--secondary-color);
+        }
+
+        .section.dark .video-card p {
+            color: #ccc;
+        }
+
+        /* الموارد */
+        .resources-list {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        .resource {
+            flex: 1;
+            min-width: 250px;
+            background-color: white;
+            padding: 2rem;
+            border-radius: 5px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .resource i {
+            font-size: 3rem;
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+        }
+
+        .resource h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .resource a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .resource a:hover {
+            text-decoration: underline;
+        }
+
+        /* نموذج الاتصال */
+        form {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 2rem;
+            border-radius: 5px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        input, textarea {
+            display: block;
+            width: 100%;
+            padding: 0.8rem;
+            margin-bottom: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-family: inherit;
+        }
+
+        textarea {
+            height: 150px;
+            resize: vertical;
+        }
+
+        /* التذييل */
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+        }
+
+        .social {
+            margin-top: 1rem;
+        }
+
+        .social a {
+            color: white;
+            margin: 0 0.5rem;
+            font-size: 1.5rem;
+            transition: color 0.3s;
+        }
+
+        .social a:hover {
+            color: var(--primary-color);
+        }
+
+        /* التكيف مع الشاشات الصغيرة */
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            nav ul li {
+                margin: 0.5rem 0;
+            }
+
+            .features, .resources-list {
+                flex-direction: column;
+            }
+
+            .video-grid {
+                grid-template-columns: 1fr;
+            }
+
+            #hero {
+                padding: 6rem 0;
+            }
+
+            #hero h2 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>تعلم لغة C# من الصفر إلى الاحتراف</h1>
+            <nav>
+                <ul>
+                    <li><a href="#about">عن الدورة</a></li>
+                    <li><a href="#videos">الفيديوهات</a></li>
+                    <li><a href="#resources">الموارد</a></li>
+                    <li><a href="#contact">اتصل بنا</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section id="hero">
+        <div class="container">
+            <h2>ابدأ رحلتك في البرمجة مع C#</h2>
+            <p>تعلم واحدة من أقوى لغات البرمجة المستخدمة في تطوير التطبيقات، الألعاب، والويب</p>
+            <a href="#videos" class="btn">ابدأ التعلم الآن</a>
+        </div>
+    </section>
+
+    <section id="about" class="section">
+        <div class="container">
+
+Ibrahem Leelo, [5/21/2025 1:50 AM]
+<h2>ماذا ستتعلم في هذه الدورة؟</h2>
+            <div class="features">
+                <div class="feature">
+                    <i class="fas fa-code"></i>
+                    <h3>أساسيات C#</h3>
+                    <p>المتغيرات، الجمل الشرطية، الحلقات، الدوال والمزيد</p>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-object-group"></i>
+                    <h3>البرمجة الكائنية</h3>
+                    <p>الفئات، الكائنات، الوراثة، والتغليف</p>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-database"></i>
+                    <h3>قواعد البيانات</h3>
+                    <p>ربط تطبيقاتك بقواعد البيانات باستخدام Entity Framework</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="videos" class="section dark">
+        <div class="container">
+            <h2>الفيديوهات التعليمية</h2>
+            <div class="video-grid">
+                <div class="video-card">
+                    <iframe src="https://www.youtube.com/embed/gfkTfcpWqAY" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <h3>مقدمة إلى لغة C#</h3>
+                    <p>تعرف على لغة C# وأهميتها في سوق العمل</p>
+                </div>
+                <div class="video-card">
+                    <iframe src="https://www.youtube.com/embed/w3kG4uY8nUQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <h3>تركيب بيئة العمل</h3>
+                    <p>كيفية تحميل وتثبيت Visual Studio للبدء في البرمجة</p>
+                </div>
+                <div class="video-card">
+                    <iframe src="https://www.youtube.com/embed/IFNHCY0wQY0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <h3>المتغيرات وأنواع البيانات</h3>
+                    <p>الدرس الأساسي الأول في أي لغة برمجة</p>
+                </div>
+                <div class="video-card">
+                    <iframe src="https://www.youtube.com/embed/7Cynl8Q6GSs" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <h3>الجمل الشرطية</h3>
+                    <p>كيفية اتخاذ القرارات في برامجك</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="resources" class="section">
+        <div class="container">
+            <h2>موارد إضافية</h2>
+            <div class="resources-list">
+                <div class="resource">
+                    <i class="fas fa-book"></i>
+                    <h3>الوثائق الرسمية</h3>
+                    <p><a href="https://learn.microsoft.com/ar-sa/dotnet/csharp/" target="_blank">Microsoft C# Documentation</a></p>
+                </div>
+                <div class="resource">
+                    <i class="fas fa-laptop-code"></i>
+                    <h3>تمارين تفاعلية</h3>
+                    <p><a href="https://exercism.org/tracks/csharp" target="_blank">Exercism C# Track</a></p>
+                </div>
+                <div class="resource">
+                    <i class="fas fa-users"></i>
+                    <h3>مجتمع الدعم</h3>
+                    <p><a href="https://stackoverflow.com/questions/tagged/c%23" target="_blank">Stack Overflow</a></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="section dark">
+        <div class="container">
+            <h2>تواصل معنا</h2>
+            <form>
+                <input type="text" placeholder="اسمك" required>
+                <input type="email" placeholder="بريدك الإلكتروني" required>
+                <textarea placeholder="رسالتك" required></textarea>
+                <button type="submit" class="btn">إرسال</button>
+            </form>
+        </div>
+    </section>
